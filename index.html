@@ -87,8 +87,8 @@
     .banner .title {
         font-size: 60px;
         font-weight: 600;
-        letter-spacing: 2px;
         text-shadow: 1px 1px #333;
+        font-family: ZhenyanGB-Regular, ZhenyanGB;
     }
 
     @media screen and (min-width: 980px) {
@@ -144,7 +144,8 @@
         font-size: 60px;
         font-weight: 800;
         text-align: center;
-        color: #F7F8FA;
+        color: rgba(247, 248, 250, 1);
+        font-family: Arial-Black, Arial;
         transform: translate(-50%, 0);
         -webkit-transform: translate(-50%, 0);
         overflow: hidden;
@@ -153,12 +154,13 @@
     .section-header .name {
         position: absolute;
         left: 50%;
-        top: 60px;
+        top: 52px;
         width: 100%;
-        font-size: 30px;
+        font-size: 36px;
         text-align: center;
         font-weight: 600;
         z-index: 9;
+        font-family: PingFangSC-Medium, PingFang SC;
         transform: translate(-50%, 0);
         -webkit-transform: translate(-50%, 0);
         letter-spacing: 2px;
@@ -167,6 +169,7 @@
     .section-header .title {
         padding-top: 80px;
         text-align: center;
+        font-size: 16px;
     }
 
     .imageyun-section {
@@ -178,25 +181,26 @@
     }
 
     .imageyun-section .left {
-        padding-right: 20px;
+        padding-right: 10px;
     }
 
     .imageyun-section .left .item {
-        width: 40px;
+        width: 48px;
         margin: 30px 0;
         text-align: center;
         cursor: pointer;
         transition: font-size .2s;
         -webkit-transition: font-size .2s;
+        font-size: 16px;
     }
 
     .imageyun-section .left .item.active {
-        border-bottom: 4px solid #1095FE;
-        font-size: 20px;
+        border-bottom: 4px solid #1195FE;
+        font-size: 24px;
     }
 
     .imageyun-section .line {
-        border: 1px solid #D5ECFE;
+        border: 1px solid #AED7FF;
         position: relative;
         margin: 0 20px;
     }
@@ -208,7 +212,7 @@
         width: 15px;
         height: 15px;
         border-style: solid;
-        border-color: #D5ECFE;
+        border-color: #AED7FF;
         border-width: 2px 0 0 2px;
         transform: rotate(-45deg);
         -webkit-transform: rotate(-45deg);
@@ -226,18 +230,19 @@
         width: 25px;
         height: 25px;
         margin-right: 15px;
-        margin-top: 2px;
+        margin-top: 4px;
     }
 
 
     .imageyun-section .right .step-title {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 600;
     }
 
     .imageyun-section .right .step-ps {
-        color: #AFAFAF;
+        color: #999999;
         padding: 8px 0 16px 0;
+        font-size: 16px;
     }
 
     @media screen and (max-width: 1000px) {
@@ -292,9 +297,7 @@
 
     .aiimage-section .introduce {
         position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        -webkit-transform: translate(0, -50%);
+        top: 90px;
         color: #ECECEC;
         left: 20px;
         right: 20px;
@@ -344,6 +347,16 @@
 
     .imageonline-section .content {
         margin: 90px 0;
+    }
+
+    .imageonline-section .wrapper-title {
+        font-weight: 400;
+        margin-top: 20px;
+    }
+
+    .imageonline-section .ps {
+        color: #999999;
+        font-size: 14px;
     }
 
     @media screen and (min-width: 970px) {
@@ -489,13 +502,13 @@
     }
 
     .map-section .ps {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .map-section .ps span {
-        color: #1A95F5;
+        color: #1195FE;
         padding: 0 10px;
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .map-section .introduce {
@@ -514,6 +527,7 @@
     .map-section .name {
         font-size: 24px;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .map-section .number-tab {
@@ -530,9 +544,10 @@
     }
 
     .map-section .text {
-        font-size: 20px;
+        font-size: 24px;
         position: absolute;
         bottom: 0;
+        padding-left: 5px;
     }
 
     @media screen and (min-width: 680px) {
@@ -592,6 +607,10 @@
 
     .hidden {
         display: none;
+    }
+
+    .mb5 {
+        margin-bottom: 5px;
     }
 
     .pb0 {
@@ -761,8 +780,8 @@
                                             <img src="./image/system.png" />
                                         </div>
                                         <div class="pt30">
-                                            <p>全功能医学影像归档</p>
-                                            <p>及管理系统</p>
+                                            <div class="mb5">全功能医学影像归档</div>
+                                            <div>及管理系统</div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-xs-12 platform">
@@ -770,8 +789,8 @@
                                             <img src="./image/platform.png" />
                                         </div>
                                         <div class="pt30 platform-ps">
-                                            <p>帮助合作意愿使用科室使用随时</p>
-                                            <p>通过电脑/手机登云平台</p>
+                                            <div class="mb5">帮助合作意愿使用科室使用随时</div>
+                                            <div>通过电脑/手机登云平台</div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-xs-12 report">
@@ -781,8 +800,8 @@
                                         <div class="pt30 flex">
                                             <div class="flex-1"></div>
                                             <div>
-                                                <p>查询、调阅各类</p>
-                                                <p>患者影像报告</p>
+                                                <div class="mb5">查询、调阅各类</div>
+                                                <div>患者影像报告</div>
                                             </div>
                                             <div class="flex-1 report-content-right"></div>
                                         </div>
@@ -791,34 +810,33 @@
                             </div>
                             <div class="item">
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12 system">
+                                    <div class="col-md-4 col-xs-12">
                                         <div class="text-center">
                                             <img src="./image/wrapper_application .png" />
                                         </div>
-                                        <div class="pt30">
-                                            <p>云端部署易扩展，随时随地的调阅</p>
-                                            <p>适合多种应用场景，灵活采取应用方案，满足各种医疗影像应用的需求</p>
+                                        <div class="wrapper-title text-center">应用场景</div>
+                                        <div class="pt10 ps">
+                                            <div>云端部署易扩展，随时随地的调阅</div>
+                                            <div>适合多种应用场景，灵活采取应用方案，满足各种医疗影像应用的需求</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-xs-12 platform">
+                                    <div class="col-md-4 col-xs-12">
                                         <div class="text-center">
                                             <img src="./image/wrapper_hospital.png" />
                                         </div>
-                                        <div class="pt30">
-                                            <p>云端PACS系统部署，与原有PACS系统对接，实现影像数据的获取，院外办公和移动阅片</p>
+                                        <div class="wrapper-title text-center">单体医院</div>
+                                        <div class="pt10 ps">
+                                            云端PACS系统部署，与原有PACS系统对接，实现影像数据的获取，院外办公和移动阅片
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-xs-12 report">
+                                    <div class="col-md-4 col-xs-12">
                                         <div class="text-center">
                                             <img src="./image/wrapper_area.png" />
                                         </div>
-                                        <div class="pt30 flex">
-                                            <div class="flex-1"></div>
-                                            <div>
-                                                <p>分布在各地的医院，可实现集中存储、互相调阅影像，远程诊断，远程协作。</p>
-                                                <p>连接市、县、镇（社区）医院，区域内影像共享，按各自权限应用，集中存储，院间协作诊断，移动办公阅片。</p>
-                                            </div>
-                                            <div class="flex-1 report-content-right"></div>
+                                        <div class="wrapper-title text-center">区域化</div>
+                                        <div class="pt10 ps">
+                                            <div>分布在各地的医院，可实现集中存储、互相调阅影像，远程诊断，远程协作。</div>
+                                            <div>连接市、县、镇（社区）医院，区域内影像共享，按各自权限应用，集中存储，院间协作诊断，移动办公阅片。</div>
                                         </div>
                                     </div>
                                 </div>
