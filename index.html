@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>医颂云</title>
+    <link rel="stylesheet" text="text/css" href="./css/bootstrap.min.css">
+    </link>
+    <link rel="stylesheet" text="text/css" href="./css/bootstrap-theme.min.css">
+    </link>
+</head>
+<style>
+    header {
+        background-image: none !important;
+        background-color: #2381FF !important;
+        border: none !important;
+        border-radius: 0px !important;
+        color: #fff;
+        margin-bottom: 0px !important;
+    }
+
+    .logo {
+        width: 200px;
+        height: 50px;
+        padding: 5px 0;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+        color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li.active>a {
+        background-color: #2381FF;
+        background-image: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .navbar-default .navbar-nav>li.active>a:hover {
+        background-color: #2381FF;
+        color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li.active>a:visited {
+        background-color: #2381FF;
+        color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li.active>a>span {
+        border-bottom: 3px solid #fff;
+        padding: 5px;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+        color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a:visited {
+        color: #fff;
+    }
+
+    .banner {
+        background: url('./image/banner.png') no-repeat;
+        background-position: center center;
+        color: #fff;
+        text-align: center;
+        padding-top: 240px;
+        padding-bottom: 50px;
+        height: 600px;
+    }
+
+    .banner .title {
+        font-size: 60px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px #333;
+    }
+
+    @media screen and (min-width: 980px) {
+        .banner .title {
+            font-size: 60px;
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .banner .title {
+            font-size: 50px;
+        }
+    }
+
+    @media screen and (max-width: 840px) {
+        .banner .title {
+            font-size: 40px;
+        }
+    }
+
+    @media screen and (max-width: 690px) {
+        .banner .title {
+            font-size: 30px;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        .banner .title {
+            font-size: 25px;
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        .banner .title {
+            font-size: 20px;
+        }
+    }
+
+    .banner .ps {
+        margin: 20px auto 0;
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .section-header {
+        padding: 30px 0 30px;
+    }
+
+    .section-header .bg {
+        position: absolute;
+        left: 50%;
+        width: 100%;
+        font-size: 60px;
+        font-weight: 800;
+        text-align: center;
+        color: #F7F8FA;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        overflow: hidden;
+    }
+
+    .section-header .name {
+        position: absolute;
+        left: 50%;
+        top: 60px;
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 600;
+        z-index: 9;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        letter-spacing: 2px;
+    }
+
+    .section-header .title {
+        padding-top: 80px;
+        text-align: center;
+    }
+
+    .imageyun-section {
+        position: relative;
+    }
+
+    .imageyun-section .content {
+        margin: 90px 0;
+    }
+
+    .imageyun-section .left {
+        padding-right: 20px;
+    }
+
+    .imageyun-section .left .item {
+        width: 40px;
+        margin: 30px 0;
+        text-align: center;
+        cursor: pointer;
+        transition: font-size .2s;
+        -webkit-transition: font-size .2s;
+    }
+
+    .imageyun-section .left .item.active {
+        border-bottom: 4px solid #1095FE;
+        font-size: 20px;
+    }
+
+    .imageyun-section .line {
+        border: 1px solid #D5ECFE;
+        position: relative;
+        margin: 0 20px;
+    }
+
+    .imageyun-section .line-right {
+        position: absolute;
+        top: 37px;
+        right: -7px;
+        width: 15px;
+        height: 15px;
+        border-style: solid;
+        border-color: #D5ECFE;
+        border-width: 2px 0 0 2px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        background-color: #fff;
+        transition: top .2s;
+        -webkit-transition: top .2s;
+    }
+
+    .imageyun-section .center {
+        width: 400px;
+        text-align: center;
+    }
+
+    .imageyun-section .right img {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+        margin-top: 2px;
+    }
+
+
+    .imageyun-section .right .step-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .imageyun-section .right .step-ps {
+        color: #AFAFAF;
+        padding: 8px 0 16px 0;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .imageyun-section .content {
+            display: block;
+        }
+
+        .imageyun-section .left {
+            display: flex;
+            display: -webkit-flex;
+        }
+
+        .imageyun-section .left .item {
+            width: 50px;
+            height: 30px;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+
+        .imageyun-section .line {
+            margin: 0;
+        }
+
+        .imageyun-section .line-right {
+            display: none;
+        }
+
+        .imageyun-section .center {
+            margin: 20px 0;
+            width: auto;
+        }
+
+        .imageyun-section .center image {
+            margin: 20px 0;
+            max-width: 100%;
+        }
+    }
+
+    .aiimage-section {
+        background: url('./image/AI.png') no-repeat;
+        background-position: center center;
+        position: relative;
+        color: #fff;
+        height: 600px;
+    }
+
+    .aiimage-section .content {
+        position: absolute;
+        right: 0;
+        height: 470px;
+    }
+
+    .aiimage-section .introduce {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        color: #ECECEC;
+        left: 20px;
+        right: 20px;
+    }
+
+    .aiimage-section .color-blue {
+        color: #2B7BC0;
+    }
+
+    @media screen and (min-width: 1210px) {
+        .aiimage-section .content {
+            left: 48%;
+        }
+    }
+
+    @media screen and (max-width: 1210px) {
+        .aiimage-section .content {
+            left: 50%;
+            transform: translate(-50%, 0);
+            -webkit-transform: translate(-50%, 0);
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .aiimage-section .content {
+            width: 60%;
+        }
+    }
+
+    @media screen and (max-width: 830px) {
+        .aiimage-section .content {
+            width: 80%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .aiimage-section .content {
+            width: 100%;
+            padding: 0 20px;
+        }
+    }
+
+    .imageonline-section {
+        position: relative;
+        font-size: 20px;
+    }
+
+    .imageonline-section .content {
+        margin: 90px 0;
+    }
+
+    @media screen and (min-width: 970px) {
+        .imageonline-section .system-image {
+            padding-left: 40px;
+        }
+
+        .imageonline-section .platform-ps {
+            padding-left: 40px;
+        }
+
+        .imageonline-section .report-image {
+            text-align: right;
+            padding-right: 25px;
+        }
+
+        .imageonline-section .report-content-right {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 970px) {
+
+        .imageonline-section .system,
+        .imageonline-section .platform,
+        .imageonline-section .report {
+            text-align: center;
+        }
+    }
+
+    .aboutus-section {
+        position: relative;
+        background: url('./image/aboutus.png') no-repeat;
+        background-position: center center;
+        color: #fff;
+        height: 597px;
+    }
+
+    .aboutus-section .bg-section {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0000009c;
+    }
+
+    .aboutus-section .container {
+        position: relative;
+        height: 100%;
+    }
+
+    .aboutus-section .content {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        color: #ECECEC;
+        left: 0;
+        right: 0;
+    }
+
+    .aboutus-section p {
+        text-indent: 2em;
+    }
+
+    .aboutus-section .start {
+        background: url('./image/“.png') no-repeat;
+        width: 69px;
+        height: 60px;
+        position: absolute;
+        top: -44px;
+    }
+
+    .aboutus-section .end {
+        background: url('./image/“.png') no-repeat;
+        width: 69px;
+        height: 60px;
+        position: absolute;
+        bottom: -25px;
+        right: 0;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+
+    @media screen and (min-width: 1260px) {
+        .aboutus-section .introduce {
+            display: flex;
+            display: -webkit-flex;
+        }
+
+        .aboutus-section .image_1 {
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+    }
+
+    @media screen and (max-width: 1260px) {
+        .aboutus-section .content {
+            margin-top: 60px;
+            width: 100%;
+        }
+
+        .aboutus-section .start {
+            left: 20px;
+        }
+
+        .aboutus-section .end {
+            right: 20px;
+        }
+
+        .aboutus-section .introduce {
+            /* left: 50%;
+            transform: translate(0, -50%);
+            -webkit-transform: translate(0, -50%); */
+            padding: 20px;
+        }
+
+        .aboutus-section .image-tab {
+            padding-top: 20px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 610px) {
+        .aboutus-section .image-tab {
+            display: none;
+        }
+    }
+
+    .map-section {
+        position: relative;
+        background: url('./image/map.png') no-repeat;
+        background-position: right center;
+        height: 597px;
+    }
+
+    .map-section .content {
+        position: absolute;
+        top: 40%;
+        transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+    }
+
+    .map-section .ps {
+        font-size: 20px;
+    }
+
+    .map-section .ps span {
+        color: #1A95F5;
+        padding: 0 10px;
+        font-size: 30px;
+    }
+
+    .map-section .introduce {
+        padding-top: 50px;
+    }
+
+    .map-section .hospital {
+        width: 280px;
+    }
+
+    .map-section .imageupload {
+        width: 340px;
+        padding-left: 50px;
+    }
+
+    .map-section .name {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    .map-section .number-tab {
+        position: relative;
+    }
+
+    .map-section .number {
+        background: url('./image/bg_number.png') no-repeat;
+        width: 40px;
+        display: inline-block;
+        height: 54px;
+        font-size: 40px;
+        padding: 0 8px;
+    }
+
+    .map-section .text {
+        font-size: 20px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    @media screen and (min-width: 680px) {
+        .map-section .info {
+            border-right: 1px solid #EDF0F5;
+        }
+
+        .map-section .introduce {
+            display: flex;
+            display: -webkit-flex;
+        }
+    }
+
+
+    @media screen and (max-width: 680px) {
+        .map-section .content {
+            top: 10%;
+            transform: translate(0, 0);
+            -webkit-transform: translate(0, 0);
+        }
+
+        .map-section .imageupload {
+            padding-top: 50px;
+            padding-left: 0;
+        }
+    }
+
+    footer {
+        background: url('./image/footer.png') no-repeat;
+        background-position: center center;
+        height: 142px;
+    }
+
+    .carousel-indicators li {
+        background-color: #ACD8FF;
+    }
+
+    .carousel-indicators .active {
+        background-color: #1297FF;
+    }
+
+    @media screen and (min-width: 768px) {
+        .carousel-indicators {
+            bottom: -80px;
+        }
+    }
+
+    .flex {
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    .flex-1 {
+        -webkit-flex: 1;
+        flex: 1;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .pb0 {
+        padding-bottom: 0px !important;
+    }
+
+    .pb15 {
+        padding-bottom: 15px;
+    }
+
+    .pt20 {
+        padding-top: 20px;
+    }
+
+    .pt30 {
+        padding-top: 30px;
+    }
+
+    .pl20 {
+        padding-left: 20px;
+    }
+
+    .pl40 {
+        padding-left: 40px;
+    }
+
+    .pr10 {
+        padding-right: 10px;
+    }
+
+    .pr20 {
+        padding-right: 20px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <header class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <image class="logo" src="./image/logo.png" />
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#"><span>首页</span></a></li>
+                        <li><a href="#imageyun"><span>影像云服务</span></a></li>
+                        <li><a href="#aiimage"><span>AI智能影响</span></a></li>
+                        <li><a href="#imageonline"><span>影响远程会诊</span></a></li>
+                        <li><a href="#aboutus"><span>关于我们</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="banner">
+            <div class="title">政策、技术双重驱动</div>
+            <div class="title">"AI+ 医学影像" 成功应用多家医院,</div>
+            <div class="title">赋能医院信息化建设。</div>
+            <div class="ps flex">
+                <div class="flex-1"></div>
+                <div class="pl20 pr20">
+                    <div>随着国务出台系列政策支持医学影像行业的发展。从2013年到2017年，国务院、发改委、国家食品药品监总局、卫计委不断出台政策支持医学影像行业的发展。</div>
+                    <div>医颂云通过实践走出适合公立/民营医院的影像云系统，帮助区域医院建立互联网影像中心，帮助当地患者足不出户预约北上广专家会诊。</div>
+                </div>
+                <div class="flex-1"></div>
+            </div>
+        </div>
+
+        <!-- main -->
+        <div id="imageyun" class="imageyun-section section-header">
+            <div class="bg">IMAGE CLOUD</div>
+            <div class="name">影像云服务</div>
+            <div class="title">患者 医院 医生</div>
+            <div class="container">
+                <div class="content flex">
+                    <div class="left">
+                        <div class="item active" data-id="1" data-top="37">患者</div>
+                        <div class="item" data-id="2" data-top="87">医院</div>
+                        <div class="item" data-id="3" data-top="135">医生</div>
+                    </div>
+                    <div class="line">
+                        <div class="line-right"></div>
+                    </div>
+                    <div class="center">
+                        <img class="imageyun_1" src="./image/imageyun_1.png" />
+                        <img class="imageyun_2 hidden" src="./image/imageyun_2.png" />
+                        <img class="imageyun_3 hidden" src="./image/imageyun_3.png" />
+                    </div>
+                    <div class="right">
+                        <div class="flex">
+                            <image src="./image/1.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    快捷
+                                </div>
+                                <div class="step-ps">
+                                    通过微信扫码/短信通知等直接调取自己的影像和报告
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/2.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    省时
+                                </div>
+                                <div class="step-ps">
+                                    节省了取片时间，检查完后不用排队
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/3.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    方便
+                                </div>
+                                <div class="step-ps pb0">
+                                    方便患者进行影像会诊
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="aiimage" class="aiimage-section section-header">
+            <div class="bg" style="color: #191919;">AI INTELLECT IMAGE</div>
+            <div class="name">AI智能影像</div>
+            <div class="title">以影像大数据为驱动的学科联合科研系统</div>
+            <div class="content">
+                <div class="introduce">
+                    <p>AI智能影像是以大数据为驱动的学科联合科研系统。</p>
+                    <p>通过科室医生及会诊专家大量对影像资料诊断标记。</p>
+                    <p>不断进行机器算法迭代，主要面向科研需求，提供影像大数据的科学分析。</p>
+                    <p class="pt20">包含<span class="color-blue">课题管理、数据管理、图像留言、图像分割和放射组学分析，</span></p>
+                    <p>覆盖<span class="color-blue">多器官、多病种，</span></p>
+                    <p>帮助临床医生进行智能分析分级诊断、智能治疗评估、智能预测生存和预后。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="imageonline" class="imageonline-section section-header">
+            <div class="bg">TELECONSULTATION</div>
+            <div class="name">影像远程会诊</div>
+            <div class="title">以SaaS框架打造的区域影像/PACS系统</div>
+            <div class="container">
+                <div class="content">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-12 system">
+                                        <div class="system-image">
+                                            <img src="./image/system.png" />
+                                        </div>
+                                        <div class="pt30">
+                                            <p>全功能医学影像归档</p>
+                                            <p>及管理系统</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12 platform">
+                                        <div class="text-center">
+                                            <img src="./image/platform.png" />
+                                        </div>
+                                        <div class="pt30 platform-ps">
+                                            <p>帮助合作意愿使用科室使用随时</p>
+                                            <p>通过电脑/手机登云平台</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12 report">
+                                        <div class="report-image">
+                                            <img src="./image/report.png" />
+                                        </div>
+                                        <div class="pt30 flex">
+                                            <div class="flex-1"></div>
+                                            <div>
+                                                <p>查询、调阅各类</p>
+                                                <p>患者影像报告</p>
+                                            </div>
+                                            <div class="flex-1 report-content-right"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-12 system">
+                                        <div class="text-center">
+                                            <img src="./image/wrapper_application .png" />
+                                        </div>
+                                        <div class="pt30">
+                                            <p>云端部署易扩展，随时随地的调阅</p>
+                                            <p>适合多种应用场景，灵活采取应用方案，满足各种医疗影像应用的需求</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12 platform">
+                                        <div class="text-center">
+                                            <img src="./image/wrapper_hospital.png" />
+                                        </div>
+                                        <div class="pt30">
+                                            <p>云端PACS系统部署，与原有PACS系统对接，实现影像数据的获取，院外办公和移动阅片</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12 report">
+                                        <div class="text-center">
+                                            <img src="./image/wrapper_area.png" />
+                                        </div>
+                                        <div class="pt30 flex">
+                                            <div class="flex-1"></div>
+                                            <div>
+                                                <p>分布在各地的医院，可实现集中存储、互相调阅影像，远程诊断，远程协作。</p>
+                                                <p>连接市、县、镇（社区）医院，区域内影像共享，按各自权限应用，集中存储，院间协作诊断，移动办公阅片。</p>
+                                            </div>
+                                            <div class="flex-1 report-content-right"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                            data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                            data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="aboutus" class="aboutus-section">
+            <div class="bg-section">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="bg" style="color: #202328;">ABOUT US</div>
+                        <div class="name">关于我们</div>
+                        <div class="title">我的医学影像云管家</div>
+                        <div class="content">
+                            <div class="start"></div>
+                            <div class="introduce">
+                                <div class="flex-1">
+                                    <p class="pb15">医颂医学影像云，是一家致力于医学影像远程会诊，利用互联网技术赋能就医的影像会诊环节同时将图像深度学习技术应用的医学影像人工智能技术企业。
+                                    </p>
+                                    <p class="pb15">
+                                        公司在医疗服务能力和商业化落地能力上均领先于行业，在擅长科室上实现了从基层合作医院到上级专家、患者的多重联合，惠及多方。同时形成商业闭环，实现盈利。</p>
+                                    <p class="pb0">
+                                        公司已经和国内多家医院完成临床合作，基于人工智能、大数据、云计算，提供以患者为中心的一整套临床诊疗和医学数据分析解决方案，打早了医学影像的数字化、移动化、智能化。核心团队成员均有多年以上医疗行业技术、产品、运营经验。
+                                    </p>
+                                </div>
+                                <div class="image-tab flex">
+                                    <img src="./image/aboutus_1.png" class="image_1" />
+                                    <div class="flex-1"></div>
+                                    <img src="./image/aboutus_2.png" class="image_2" />
+                                </div>
+                            </div>
+                            <div class="end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="container">
+                <div class="content">
+                    <p class="ps">我们是以<span>数据</span>为驱动的社会化医疗协同平台</p>
+                    <div class="introduce">
+                        <div class="hospital">
+                            <image src="./image/hospital.png" />
+                            <div class="info">
+                                <p class="name">合作医院</p>
+                                <div class="number-tab">
+                                    <span class="number">4</span>
+                                    <span class="number">0</span>
+                                    <span class="number">0</span>
+                                    <span class="number">0</span>
+                                    <span class="number">+</span>
+                                    <span class="text">家</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="imageupload">
+                            <image src="./image/imageupload.png" />
+                            <div>
+                                <p class="name">影像上传</p>
+                                <div class="number-tab">
+                                    <span class="number">4</span>
+                                    <span class="number">0</span>
+                                    <span class="number">0</span>
+                                    <span class="number">0</span>
+                                    <span class="number">0</span>
+                                    <span class="text">例/日</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer></footer>
+    </div>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <!-- 引入jquery -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        $(document).on('click', 'header li', function ($event) {
+            $('header').find('li').removeClass('active');
+            $(this).addClass('active');
+        }).on('click', '.imageyun-section .left .item', function ($event) {
+            const top = $(this).attr('data-top');
+            const id = $(this).attr('data-id');
+            $('.imageyun-section').find('.left').find('.item').removeClass('active');
+            $(this).addClass('active');
+            $('.imageyun-section .line-right').css('top', top + 'px');
+            $('.imageyun-section .center img').addClass('hidden');
+            $('.imageyun_' + id).removeClass('hidden');
+        })
+    </script>
+</body>
+
+</html>
