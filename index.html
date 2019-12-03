@@ -28,6 +28,10 @@
         border-radius: 0px !important;
         color: #fff;
         margin-bottom: 0px !important;
+        position: fixed !important;
+        width: 100%;
+        top: 0;
+        z-index: 999;
     }
 
     .logo {
@@ -38,6 +42,7 @@
 
     .navbar-default .navbar-nav>li>a {
         color: #fff;
+        cursor: pointer;
     }
 
     .navbar-default .navbar-nav>li>a>span {
@@ -82,6 +87,7 @@
         padding-top: 240px;
         padding-bottom: 50px;
         height: 600px;
+        margin-top: 50px;
     }
 
     .banner .title {
@@ -664,11 +670,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#"><span>首页</span></a></li>
-                        <li><a href="#imageyun"><span>影像云服务</span></a></li>
-                        <li><a href="#aiimage"><span>AI智能影响</span></a></li>
-                        <li><a href="#imageonline"><span>影响远程会诊</span></a></li>
-                        <li><a href="#aboutus"><span>关于我们</span></a></li>
+                        <li class="header_index active"><a><span>首页</span></a></li>
+                        <li class="header_imageyun" data-id="imageyun"><a><span>影像云服务</span></a></li>
+                        <li class="header_aiimage" data-id="aiimage"><a><span>AI智能影响</span></a></li>
+                        <li class="header_imageonline" data-id="imageonline"><a><span>影响远程会诊</span></a></li>
+                        <li class="header_aboutus" data-id="aboutus"><a><span>关于我们</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -697,8 +703,8 @@
                 <div class="content flex">
                     <div class="left">
                         <div class="item active" data-id="1" data-top="37">患者</div>
-                        <div class="item" data-id="2" data-top="87">医院</div>
-                        <div class="item" data-id="3" data-top="135">医生</div>
+                        <div class="item" data-id="2" data-top="91">医院</div>
+                        <div class="item" data-id="3" data-top="144">医生</div>
                     </div>
                     <div class="line">
                         <div class="line-right"></div>
@@ -938,7 +944,7 @@
             <div class="bg-section">
                 <div class="container">
                     <div class="section-header">
-                        <div class="bg" style="color: #202328;">ABOUT US</div>
+                        <div class="bg" style="color: rgba(0, 0, 0, .1);">ABOUT US</div>
                         <div class="name">关于我们</div>
                         <div class="title">我的医学影像云管家</div>
                         <div class="content">
@@ -1011,9 +1017,35 @@
     <!-- 引入jquery -->
     <script src="./js/bootstrap.min.js"></script>
     <script>
+        const topJson = {
+            imageyun: $('#imageyun').offset().top,
+            aiimage: $('#aiimage').offset().top,
+            imageonline: $('#imageonline').offset().top,
+            aboutus: $('#aboutus').offset().top
+        };
+
+        $(window).resize(function () {
+            topJson = {
+                imageyun: $('#imageyun').offset().top,
+                aiimage: $('#aiimage').offset().top,
+                imageonline: $('#imageonline').offset().top,
+                aboutus: $('#aboutus').offset().top
+            };
+        });
+
         $(document).on('click', 'header li', function ($event) {
             $('header').find('li').removeClass('active');
             $(this).addClass('active');
+            const new_id = $(this).attr('data-id');
+            let new_top = 0;
+            if (new_id) {
+                new_top = topJson[new_id] - 49;
+            }
+            if (new_top >= 0) {
+                $('html,body').animate({
+                    scrollTop: new_top
+                }, 0);
+            }
         }).on('click', '.imageyun-section .left .item', function ($event) {
             const top = $(this).attr('data-top');
             const id = $(this).attr('data-id');
@@ -1023,7 +1055,31 @@
             $('.imageyun-section .center img').addClass('hidden');
             $('.imageyun-section .right').addClass('hidden');
             $('.imageyun_' + id).removeClass('hidden');
-        })
+        });
+
+        $(document).scroll(function () {
+            let position = 'index';
+
+            var scroH = $(document).scrollTop(); //滚动高度
+
+            if (scroH > topJson.imageyun - 51) {
+                position = 'imageyun';
+            }
+            if (scroH > topJson.aiimage - 51) {
+                position = 'aiimage';
+            }
+            if (scroH > topJson.imageonline - 51) {
+                position = 'imageonline';
+            }
+            if (scroH > topJson.aboutus - 51) {
+                position = 'aboutus';
+            }
+
+            if (position) {
+                $('header').find('li').removeClass('active');
+                $('header').find('.header_' + position).addClass('active');
+            }
+        });
     </script>
 </body>
 
