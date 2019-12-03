@@ -303,8 +303,9 @@
         right: 20px;
     }
 
-    .aiimage-section .color-blue {
+    .aiimage-section .blue-text {
         color: #2B7BC0;
+        font-size: 16px;
     }
 
     @media screen and (min-width: 1210px) {
@@ -359,7 +360,11 @@
         font-size: 14px;
     }
 
-    @media screen and (min-width: 970px) {
+    @media screen and (min-width: 995px) {
+        .imageonline-section .carousel-inner {
+            height: 238px;
+        }
+
         .imageonline-section .system-image {
             padding-left: 40px;
         }
@@ -378,7 +383,7 @@
         }
     }
 
-    @media screen and (max-width: 970px) {
+    @media screen and (max-width: 995px) {
 
         .imageonline-section .system,
         .imageonline-section .platform,
@@ -389,7 +394,7 @@
 
     .aboutus-section {
         position: relative;
-        background: url('./image/aboutus.png') no-repeat;
+        background: url('./image/aboutus.jpg') no-repeat;
         background-position: center center;
         color: #fff;
         height: 597px;
@@ -703,7 +708,7 @@
                         <img class="imageyun_2 hidden" src="./image/imageyun_2.png" />
                         <img class="imageyun_3 hidden" src="./image/imageyun_3.png" />
                     </div>
-                    <div class="right">
+                    <div class="right imageyun_1">
                         <div class="flex">
                             <image src="./image/1.png" />
                             <div class="flex-1">
@@ -738,6 +743,76 @@
                             </div>
                         </div>
                     </div>
+                    <div class="right imageyun_2 hidden">
+                        <div class="flex">
+                            <image src="./image/1.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    优化体验
+                                </div>
+                                <div class="step-ps">
+                                    简化取片流程，改善患者就诊体验
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/2.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    高效环保
+                                </div>
+                                <div class="step-ps">
+                                    节省物力、提高服务效率；降低胶片费用，降低存储的压力
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/3.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    云服务
+                                </div>
+                                <div class="step-ps pb0">
+                                    具备异地备份存储、检查、图像快速传输
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right imageyun_3 hidden">
+                        <div class="flex">
+                            <image src="./image/1.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    高效率办公
+                                </div>
+                                <div class="step-ps">
+                                    方便医生在家也可以办公，提高效率
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/2.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    数据分析
+                                </div>
+                                <div class="step-ps">
+                                    为医生提供数据分析服务，有利于疑难杂症影像会诊清楚了解病例
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <image src="./image/3.png" />
+                            <div class="flex-1">
+                                <div class="step-title">
+                                    资料共享
+                                </div>
+                                <div class="step-ps pb0">
+                                    为远程会诊提供了技术基础
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -751,8 +826,8 @@
                     <p>AI智能影像是以大数据为驱动的学科联合科研系统。</p>
                     <p>通过科室医生及会诊专家大量对影像资料诊断标记。</p>
                     <p>不断进行机器算法迭代，主要面向科研需求，提供影像大数据的科学分析。</p>
-                    <p class="pt20">包含<span class="color-blue">课题管理、数据管理、图像留言、图像分割和放射组学分析，</span></p>
-                    <p>覆盖<span class="color-blue">多器官、多病种，</span></p>
+                    <p class="pt20">包含<span class="blue-text">课题管理、数据管理、图像留言、图像分割和放射组学分析，</span></p>
+                    <p>覆盖<span class="blue-text">多器官、多病种，</span></p>
                     <p>帮助临床医生进行智能分析分级诊断、智能治疗评估、智能预测生存和预后。</p>
                 </div>
             </div>
@@ -946,6 +1021,7 @@
             $(this).addClass('active');
             $('.imageyun-section .line-right').css('top', top + 'px');
             $('.imageyun-section .center img').addClass('hidden');
+            $('.imageyun-section .right').addClass('hidden');
             $('.imageyun_' + id).removeClass('hidden');
         })
     </script>
