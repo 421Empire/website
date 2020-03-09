@@ -368,7 +368,7 @@
 
     @media screen and (min-width: 995px) {
         .imageonline-section .carousel-inner {
-            height: 238px;
+            height: 268px;
         }
 
         .imageonline-section .system-image {
@@ -527,7 +527,7 @@
     }
 
     .map-section .hospital {
-        width: 280px;
+        width: 260px;
     }
 
     .map-section .imageupload {
@@ -574,6 +574,10 @@
 
 
     @media screen and (max-width: 680px) {
+        .map-section {
+            height: 670px;
+        }
+
         .map-section .content {
             top: 10%;
             transform: translate(0, 0);
@@ -584,6 +588,22 @@
             padding-top: 50px;
             padding-left: 0;
         }
+    }
+
+    .contactus-section {
+        background-color: #5C7887;
+        color: #fff;
+        padding: 40px 0;
+    }
+
+    .contactus-section .title {
+        font-size: 24px;
+    }
+
+    .contactus-section .beian {
+        border-top: 1px solid #E1E1E1;
+        padding-top: 30px;
+        margin-top: 30px;
     }
 
     footer {
@@ -630,6 +650,10 @@
 
     .pb15 {
         padding-bottom: 15px;
+    }
+
+    .pt10 {
+        padding-top: 10px;
     }
 
     .pt20 {
@@ -989,7 +1013,6 @@
                                     <span class="number">4</span>
                                     <span class="number">0</span>
                                     <span class="number">0</span>
-                                    <span class="number">0</span>
                                     <span class="number">+</span>
                                     <span class="text">家</span>
                                 </div>
@@ -1014,16 +1037,26 @@
             </div>
         </div>
 
+        <div class="contactus-section">
+            <div class="container">
+                <div class="title">联系我们</div>
+                <div class="pt20">电话：4006-032-516</div>
+                <div class="pt10 pb20">邮箱：BD@yisongcloud.com</div>
+                <div class="pt10 pb20">地址：上海市嘉定区翔江公路3333号6幢J1422室</div>
+                <div class="beian">沪ICP备19047749号</div>
+            </div>
+        </div>
+
         <!-- footer -->
-        <footer class="text-center pt70">
+        <!-- <footer class="text-center pt70">
             沪ICP备19047749号
-        </footer>
+        </footer> -->
     </div>
     <script src="./js/jquery-3.2.1.min.js"></script>
     <!-- 引入jquery -->
     <script src="./js/bootstrap.min.js"></script>
     <script>
-        const topJson = {
+        let topJson = {
             imageyun: $('#imageyun').offset().top,
             aiimage: $('#aiimage').offset().top,
             imageonline: $('#imageonline').offset().top,
